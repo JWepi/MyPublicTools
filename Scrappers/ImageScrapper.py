@@ -89,7 +89,7 @@ while myaddress.lower != "q":
 						if FULLDEBUG:
 							print("%d%% - Saving at ALL %s" % (round((ind + 1) / len(images) * 100), placetowrite.split("/")[-1]))
 						else:
-							print("%d%%" % (round((ind + 1 / len(images)) * 100)))
+							print("%d%%" % (round((ind + 1) / len(images) * 100)))
 						f = open(placetowrite, 'wb')
 						f.write(r.content)
 						f.close()
