@@ -34,6 +34,7 @@ Will only work under Windows OS as it is
 You can:
 
 Call the value stored in your clipboard as an URL value with "-c" option
+Call the 4Chan /b/ page faster with "-b" option
 
 ------------------------------
 

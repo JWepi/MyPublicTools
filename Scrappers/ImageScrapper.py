@@ -26,7 +26,8 @@ while myaddress.lower != "q":
 				win32clipboard.OpenClipboard()
 				myaddress = win32clipboard.GetClipboardData()
 				win32clipboard.CloseClipboard()
-			
+			if (myaddress == "-b"):
+				myaddress = "boards.4chan.org/b"
 			if myaddress.startswith("https://"):
 				raise ValueError("Did you try to get images from a https url ?")
 			
