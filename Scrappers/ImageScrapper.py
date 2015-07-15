@@ -113,7 +113,7 @@ while myaddresses != "q":
 								f.write(r.content)
 								f.close()
 				
-					f = open(ROOTIMGS+"/%s/%s" % (myaddress, myaddress.split('/')[0]), 'wb')	
+					f = open(ROOTIMGS+"/%s/%s.link.html" % (myaddress, myaddress.split('/')[0]), 'wb')	
 					f.write(bytes("<a href='http://"+myaddress+"'>"+myaddress+"</a>", 'UTF-8'))
 					f.close()
 					print("Process complete for %s !\n\n" % myaddress)
