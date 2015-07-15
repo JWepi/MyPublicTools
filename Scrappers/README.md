@@ -17,10 +17,10 @@ ImageScrapper.py
 
 ------------------------------
 
-Includes the following libs:
+Includes the following libs than you must have:
 
-- requests 		(http://docs.python-requests.org/en/latest/)
-- lxml 			(http://lxml.de/)
+- requests 			(http://docs.python-requests.org/en/latest/)
+- lxml 				(http://lxml.de/)
 - win32clipboard	(http://sourceforge.net/projects/pywin32/files/pywin32/)
 
 ------------------------------
@@ -35,6 +35,8 @@ You can:
 
 - Call the value stored in your clipboard as an URL value with "-c" option
 - Call the 4Chan /b/ page faster with "-b" option
+- Call the 4Chan ten /b/ pages faster with "-b*" option
+- Delete your image folder with "-d"
 
 ------------------------------
 
