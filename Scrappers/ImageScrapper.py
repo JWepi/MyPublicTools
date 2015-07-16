@@ -74,7 +74,6 @@ while myaddresses != "q":
 							for ind, url in enumerate(images):
 								if (savedaddresses == "-bb" or savedaddresses == "-b*b"):
 									url = url.replace("s.", ".")
-								print(url, myaddress)
 								imgName = url.split('/')[-1].split('.')[0]
 								imgType = url.split('/')[-1].split('.')[-1].split('?')[-1]
 								imgFullName = imgName + "." + imgType
