@@ -34,8 +34,8 @@ What you need to know:
 You can:
 
 - Call the value stored in your clipboard as an URL value with "-c" option
-- Call the 4Chan /b/ page faster with "-b" option
-- Call the 4Chan ten /b/ pages faster with "-b*" option
+- Call the 4Chan /b/ page faster with "-b" option ("-bb" gets the full size pictures)
+- Call the 4Chan ten /b/ pages faster with "-b*" option ("-b*b" gets the full size pictures)
 - Delete your image folder with "-d"
 
 ------------------------------

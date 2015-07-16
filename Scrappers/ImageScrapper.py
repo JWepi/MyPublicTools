@@ -18,14 +18,15 @@ IMAGESLOCATIONS = ["//img/@src", "//imgs/@src", "//image/@src", "//images/@src",
 "//asset/@src", "//assets/@src", "//logo/@src", "//logos/@src"]
 REGEXURL = '#((https?://|ftp://|www\.|[^\s:=]+@www\.).*?[a-z_\/0-9\-\#=&])(?=(\.|,|;|\?|\!)?("|\\\'|«|»|\[|\s|\r|\n|$))#iS'
 
-if not os.path.exists(ROOTIMGS):
-	os.makedirs(ROOTIMGS)
-if not os.path.exists(ROOTIMGS+"/ALL"):
-	os.makedirs(ROOTIMGS+"/ALL")
-
 while myaddresses != "q":
 	if myaddresses != "" and myaddresses != "q":
 		try:
+			savedaddresses = myaddresses
+			if not os.path.exists(ROOTIMGS):
+				os.makedirs(ROOTIMGS)
+			if not os.path.exists(ROOTIMGS+"/ALL"):
+				os.makedirs(ROOTIMGS+"/ALL")
+		
 			if (myaddresses == "-d"):
 				shutil.rmtree(ROOTIMGS)
 				print("You removed the root folder '%s' !\n\n" % ROOTIMGS)
@@ -34,9 +35,9 @@ while myaddresses != "q":
 					win32clipboard.OpenClipboard()
 					myaddresses = win32clipboard.GetClipboardData()
 					win32clipboard.CloseClipboard()
-				if (myaddresses == "-b"):
+				if (myaddresses == "-b" or myaddresses == "-bb"):
 					myaddresses = "boards.4chan.org/b"
-				if (myaddresses == "-b*"):
+				if (myaddresses == "-b*" or myaddresses == "-b*b"):
 					myaddresses = "boards.4chan.org/b;;boards.4chan.org/b/2;;boards.4chan.org/b/3;;boards.4chan.org/b/4;;boards.4chan.org/b/5;;boards.4chan.org/b/6;;boards.4chan.org/b/7;;boards.4chan.org/b/8;;boards.4chan.org/b/9;;boards.4chan.org/b/10"
 				
 				myaddresses = myaddresses.split(";;")
@@ -71,9 +72,15 @@ while myaddresses != "q":
 									os.makedirs(ROOTIMGS+"/"+myaddress)
 							
 							for ind, url in enumerate(images):
+								if (savedaddresses == "-bb" or savedaddresses == "-b*b"):
+									url = url.replace("s.", ".")
+								print(url, myaddress)
 								imgName = url.split('/')[-1].split('.')[0]
 								imgType = url.split('/')[-1].split('.')[-1].split('?')[-1]
 								imgFullName = imgName + "." + imgType
+								
+								if (imgType not in ["jpg", "jpeg", "gif", "bmp", "png"]):
+									imgFullName += ".png"
 								
 								placetowrite = ROOTIMGS+"/%s/%s%s" % (myaddress, time.strftime("%d%m%Y-%H%M%S_"),imgFullName)
 								try:
@@ -129,6 +136,8 @@ while myaddresses != "q":
 			print("ValueError : %s\n" % my_err)
 		except ConnectionError as my_err:
 			print("ConnectionError : %s\n" % my_err)
+		except:
+			print("Unexpected error, was your input correct ? : %s\nAlso : %s\n\n" % (myaddresses, sys.exc_info()))
 		finally:
 			input("Press Enter to go forth\n")
 			
