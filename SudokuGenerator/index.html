@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Sudoku Generator</title>
+		<style>
+			body{
+				font-family: Tahoma, sans-serif;
+				font-size: 100%;
+			}
+		  
+			.bordered1{
+				border: 1px solid #000000;
+			}
+
+			.simpleBtn{
+				display: block;
+				float: left;
+				padding: 15px;
+				cursor: pointer;
+				margin:3px;
+			}
+			
+			#genbtn{
+				background-color: #55DD55;
+			}
+			
+			#clearbtn{
+				background-color: #DDAA55;
+			}
+
+			#progress{
+				padding: 10px;
+				display: block;
+				float: left;
+				margin:3px;
+			}
+			
+			.square{
+				display: block;
+				float:left;
+				text-align: center;
+				vertical-align: middle;
+				line-height: 40px;
+				height: 40px;
+				width: 40px;
+				padding: 5px;
+			}
+			
+			.box{
+				display: block;
+				float:left;
+				height: 156px;
+				width: 156px;
+			}
+			
+			.bigbox{
+				display: block;
+				height: 474px;
+				width: 474px;
+			}
+			
+			.failed{
+				color:#DD5555;
+			}
+
+		</style>
+		<script src="js/libs/jquery.min.js"></script>
+		<script src="js/sudokugencore.js"></script>
+	</head>
+	<body>
+		<br /><br />
+		<div class='simpleBtn bordered1' id='genbtn'>Generate new grid</div>
+		<div class='simpleBtn bordered1' id='clearbtn'>Clear page</div>
+		<div class='bordered1' id='progress'>Not calculating for now</div>
+		<br /><br />
+		<br /><br />
+
+		<div class='core'>
+		</div>
+
+	</body>
+	<script>
+		$('#genbtn').on("click", function(){
+			generateGrid();
+		})
+		$('#clearbtn').on("click", function(){
+			$(".core").empty();
+		})
+	</script>
+</html>
+
